@@ -1,0 +1,1 @@
+import variableDeclaration from "./variables.js";

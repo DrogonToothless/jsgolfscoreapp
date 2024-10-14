@@ -1,1 +1,1 @@
-# jsgolfscoreapp
+This is an app you can use to keep track of all the information you need when golfing in the Wasatch Valley area of Utah. Keep track of your score, and see information from 3 local Utah golf courses such as yardage, pars, and even the tees for each hole.
