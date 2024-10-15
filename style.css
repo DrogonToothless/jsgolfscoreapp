@@ -13,6 +13,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   padding: 10px 10px;
+  height: 50px;
 }
 .buttons .add-player-button-container button:hover {
   background-color: black;
@@ -30,4 +31,16 @@
 }
 .buttons .change-course-option-container select {
   width: 200px;
+}
+.buttons .change-course-option-container button {
+  border: 1px solid rgb(128, 128, 128);
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+.buttons .change-course-option-container button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s;
 }/*# sourceMappingURL=style.css.map */

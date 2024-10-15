@@ -1,1 +1,1 @@
-import variableDeclaration from "./variables.js";
+import apidata from "./apidata.js";
