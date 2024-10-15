@@ -1,1 +1,33 @@
-/*# sourceMappingURL=style.css.map */
+.buttons {
+  width: 100%;
+  display: flex;
+  margin-top: 60px;
+}
+.buttons .add-player-button-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+.buttons .add-player-button-container button {
+  border: 1px solid rgb(128, 128, 128);
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 10px 10px;
+}
+.buttons .add-player-button-container button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s;
+}
+.buttons .change-course-option-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.buttons .change-course-option-container label {
+  margin-left: -100px;
+}
+.buttons .change-course-option-container select {
+  width: 200px;
+}/*# sourceMappingURL=style.css.map */

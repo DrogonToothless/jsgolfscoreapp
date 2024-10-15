@@ -1,1 +1,33 @@
-@import "_variables";
+.buttons {
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    .add-player-button-container {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        button {
+            border: 1px solid rgb(128, 128, 128);
+            background-color: rgb(255, 255, 255);
+            border-radius: 15px;
+            padding: 10px 10px;
+            &:hover {
+                background-color: black;
+                color: white;
+                transition: 0.5s;
+            }
+        }
+    }
+    .change-course-option-container {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        label {
+            margin-left: -100px;
+        }
+        select {
+            width: 200px;
+        }
+    }
+}
