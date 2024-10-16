@@ -17,15 +17,12 @@ const tees = {};
 const yardageInputs = Array.from({ length: 18 }, (_, i) =>
     document.getElementById(`yardage-${i + 1}`)
 );
-console.log(yardageInputs);
 const parInputs = Array.from({ length: 18 }, (_, i) =>
     document.getElementById(`par-${i + 1}`)
 );
-console.log(parInputs);
 const handicapInputs = Array.from({ length: 18 }, (_, i) =>
     document.getElementById(`handicap-${i + 1}`)
 );
-console.log(handicapInputs);
 async function retrieveAPIData() {
     try {
         const urls = [
@@ -78,9 +75,6 @@ function organizeNeededData(firstData, secondData, thirdData, thanksgivingPointD
     extractHandicaps(firstData, thanksgivingPointData.handicapArray);
     extractHandicaps(secondData, foxHollowData.handicapArray);
     extractHandicaps(thirdData, spanishOaksData.handicapArray);
-    console.log(thanksgivingPointData);
-    console.log(foxHollowData);
-    console.log(spanishOaksData);
 }
 retrieveAPIData();
 function displayData(courseData, yardageInputs, parInputs, handicapInputs) {
@@ -97,14 +91,37 @@ function displayData(courseData, yardageInputs, parInputs, handicapInputs) {
 retrieveAPIData().then(() => {
     displayData(thanksgivingPointData, yardageInputs, parInputs, handicapInputs);
 });
-document.getElementById('select-button').addEventListener('click', (event) => {
-    const courseSelector = document.getElementById("course-select")
-    const selectedCourse = courseSelector.options;
-    if (selectedCourse === 'thanksgiving') {
-        displayData(thanksgivingPointData, yardageInputs, parInputs, handicapInputs);
-    } else if (selectedCourse === 'foxHollow') {
-        displayData(foxHollowData, yardageInputs, parInputs, handicapInputs);
-    } else if (selectedCourse === 'spanishOaks') {
-        displayData(spanishOaksData, yardageInputs, parInputs, handicapInputs);
+function addPlayer() {
+    const playersRow = document.getElementById("players-row");
+    const playerRow = 
+    `
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr><th scope="col">Hole</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th></tr>
+                <tr><th scope="col" id="player-name-place"><input type="text" placeholder="Player Name" id="player-name-enter"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th></tr>
+            </thead>
+            <thead>
+                <tr><th scope="col"></th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th><th scope="col">13</th><th scope="col">14</th><th scope="col">15</th><th scope="col">16</th><th scope="col">17</th><th scope="col">18</th></tr>
+                <tr><th scope="col"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th><th scope="col"><input type="text"></th></tr>
+            </thead>
+        </table>
+    </div>
+    `
+    playersRow.innerHTML += playerRow;
+    const playerNameEnter = document.getElementById("player-name-enter");
+    playerNameEnter.addEventListener("keypress", addPlayer);
+    function addPlayer(event) {
+        if (event.key === "Enter") {
+            const playerNameEnter = document.getElementById("player-name-enter");
+            const playerName = playerNameEnter.value.trim();
+            if (playerName === "") {
+                alert("Please enter a valid name.");
+                return;
+            }
+            const playerNamePlace = document.getElementById("player-name-place");
+            playerNamePlace.textContent = playerName;
+            playerNameEnter.remove();
+        }
     }
-});
+}
